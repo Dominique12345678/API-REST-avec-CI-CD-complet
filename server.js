@@ -2,6 +2,16 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
+// Page d'accueil avec lien cliquable
+app.get('/', (req, res) => {
+  res.send(`
+    <h1>Bienvenue sur l'API User !</h1>
+    <p>Cliquez ici pour voir la liste des utilisateurs : 
+       <a href="/api/users">/api/users</a>
+    </p>
+  `);
+});
+
 let users = [
   { id: 1, name: 'Alice', email: 'alice@example.com' },
   { id: 2, name: 'Bob', email: 'bob@example.com' }
